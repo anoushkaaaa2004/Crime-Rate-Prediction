@@ -40,6 +40,4 @@ The project also includes visualizations such as:
 
 These visualizations help to better understand the data and make predictions based on observed patterns.
 
----
 
-Feel free to explore the project, test different models, and contribute improvements!
