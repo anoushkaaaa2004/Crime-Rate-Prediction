@@ -126,13 +126,4 @@ jupyter notebook notebooks/crime_prediction_logistic.ipynb
 
 ---
 
-## 🙌 Contributing
 
-Contributions are welcome!  
-You can:
-- 📌 Open issues  
-- 📈 Suggest new visualizations or algorithms  
-- 🔁 Submit pull requests  
-
-
-pickle-mixin
