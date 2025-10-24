@@ -9,7 +9,8 @@ The project includes the following machine learning algorithms:
 - K-Nearest Neighbors (KNN) 🤖
 - Random Forest 🌳
 - Logistic Regression 📈
-
+- Support Vector Machine (SVM) 🧠
+- Decision Tree 🌲
 ---
 
 ## 🔧 Algorithms Used
@@ -26,6 +27,17 @@ The project includes the following machine learning algorithms:
 - Binary classification to predict **Case Closed: Yes (1) / No (0)**.
 - Explains feature impact via coefficients.
 - Used for its simplicity, interpretability, and performance in binary classification.
+
+### 🧠 Support Vector Machine (SVM)
+- Finds the **optimal hyperplane** that separates classes with maximum margin.
+- Works well with both linear and non-linear data using kernel tricks.
+- Provides robust performance in high-dimensional feature spaces.
+
+### 🌲 Decision Tree
+- Splits data into branches based on feature values to make decisions.
+- Easy to interpret and visualize.
+- Handles both numerical and categorical features efficiently.
+- Can capture non-linear patterns but may overfit without tuning (use pruning or max_depth).
 
 ---
 
@@ -68,12 +80,21 @@ The dataset includes various features:
 ### 2. Train-Test Split
 ```python
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
+```
 
 ### 3. Model Training
 ```python
-model = LogisticRegression(max_iter=1000)
-model.fit(X_train, y_train)
+# Logistic Regression
+model_lr = LogisticRegression(max_iter=1000)
+model_lr.fit(X_train, y_train)
+
+# SVM
+model_svm = SVC(kernel='rbf', probability=True)
+model_svm.fit(X_train, y_train)
+
+# Decision Tree
+model_dt = DecisionTreeClassifier(max_depth=5, random_state=42)
+model_dt.fit(X_train, y_train)
 ```
 
 ### 4. Evaluation
