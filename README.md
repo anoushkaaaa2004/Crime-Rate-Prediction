@@ -1,7 +1,7 @@
 ![ML](https://img.shields.io/badge/Machine%20Learning-5%20Models-blue)
 ![XAI](https://img.shields.io/badge/Explainable%20AI-SHAP%20%7C%20LIME-orange)
 
-# Crime Rate Prediction using Machine Learning & Explainable AI
+# XAI Framework for Crime Rate Prediction in India
 
 ## 📌 Overview
 
