@@ -1,150 +1,136 @@
-# 🚔 Crime Rate Prediction using Machine Learning 📊
+![ML](https://img.shields.io/badge/Machine%20Learning-5%20Models-blue)
+![XAI](https://img.shields.io/badge/Explainable%20AI-SHAP%20%7C%20LIME-orange)
 
-## 🎯 Project Overview
+# Crime Rate Prediction using Machine Learning & Explainable AI
 
-This project aims to predict whether a **criminal case will be closed (Yes/No)** using machine learning. It analyzes crime data from Indian cities based on features like crime type, victim details, location, and weapon used. 
+## 📌 Overview
 
-The project includes the following machine learning algorithms:
-
-- K-Nearest Neighbors (KNN) 🤖
-- Random Forest 🌳
-- Logistic Regression 📈
-- Support Vector Machine (SVM) 🧠
-- Decision Tree 🌲
----
-
-## 🔧 Algorithms Used
-
-### ✅ K-Nearest Neighbors (KNN)
-- Predicts crime categories based on nearest neighbors.
-- Good for well-distributed and structured datasets.
-
-### 🌳 Random Forest
-- An ensemble of decision trees for classification.
-- Handles non-linear data and large datasets effectively.
-
-### 📈 Logistic Regression
-- Binary classification to predict **Case Closed: Yes (1) / No (0)**.
-- Explains feature impact via coefficients.
-- Used for its simplicity, interpretability, and performance in binary classification.
-
-### 🧠 Support Vector Machine (SVM)
-- Finds the **optimal hyperplane** that separates classes with maximum margin.
-- Works well with both linear and non-linear data using kernel tricks.
-- Provides robust performance in high-dimensional feature spaces.
-
-### 🌲 Decision Tree
-- Splits data into branches based on feature values to make decisions.
-- Easy to interpret and visualize.
-- Handles both numerical and categorical features efficiently.
-- Can capture non-linear patterns but may overfit without tuning (use pruning or max_depth).
+This project focuses on predicting crime patterns using machine learning models and improving interpretability using Explainable Artificial Intelligence (XAI) techniques. The aim is not only to achieve accurate predictions but also to understand **why** those predictions are made.
 
 ---
 
-## 📂 Dataset Description
+## 🎯 Objectives
 
-The dataset includes various features:
-- **City**
-- **Crime Description**
-- **Crime Domain**
-- **Victim Gender**
-- **Victim Age**
-- **Weapon Used**
-- **Police Deployed**
-- **Case Closed** (Target variable)
-
-### 🛠️ Preprocessing Includes:
-- Dropping unnecessary columns (e.g., date/time fields)
-- Handling missing values
-- Label encoding of categorical features
+* Predict crime outcomes using machine learning models
+* Compare performance of multiple models
+* Apply SHAP and LIME for model explainability
+* Perform feature selection using XAI techniques
+* Analyze how explainability affects model performance
 
 ---
 
-## 📚 Libraries Used
+## 📊 Datasets Used
 
-- 🐼 `pandas`
-- 🔢 `numpy`
-- ⚙️ `scikit-learn`
-- 📊 `matplotlib`
-- 🎨 `seaborn`
-- 💾 `pickle`
+1. **Dataset 1 – Crimes Against Women**
 
----
+   * Structured dataset with features like rape, kidnapping, domestic violence, etc.
 
-## 🔍 Model Training & Evaluation
+2. **Dataset 2 – Crime Dataset India**
 
-### 1. Preprocessing
-- Label encoding for `City`, `Crime Type`, `Victim Gender`, etc.
-- Feature-target split with `Case Closed` as target
-
-### 2. Train-Test Split
-```python
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-```
-
-### 3. Model Training
-```python
-# Logistic Regression
-model_lr = LogisticRegression(max_iter=1000)
-model_lr.fit(X_train, y_train)
-
-# SVM
-model_svm = SVC(kernel='rbf', probability=True)
-model_svm.fit(X_train, y_train)
-
-# Decision Tree
-model_dt = DecisionTreeClassifier(max_depth=5, random_state=42)
-model_dt.fit(X_train, y_train)
-```
-
-### 4. Evaluation
-
-#### 📋 Metrics:
-- ✅ **Confusion Matrix**
-- 📌 **Classification Report**
-- 📉 **ROC Curve** with AUC score
-
-#### 📊 Visualizations:
-
-- ✅ **Confusion Matrix**  
-- 📌 **Feature Importance** (model coefficients)  
-- 🔁 **Case Closed Distribution**  
-- 🔫 **Top 10 Crime Types**  
-- 🗺️ **Crime Domain by City Heatmap**  
-- 👥 **Victim Age Distribution**  
-- 📊 **Pair Plot of Key Features**  
-- 📉 **ROC Curve**
+   * Real-world dataset with case-level details (city, crime type, victim info, etc.)
 
 ---
 
-## 💾 Model Saving
+## ⚙️ Machine Learning Models
 
-After training:
-```python
-with open('models/crime_logistic_model.pkl', 'wb') as file:
-    pickle.dump(model, file)
-```
+### 🔹 Baseline Models
 
----
+* K-Nearest Neighbors (KNN)
+* Logistic Regression
+* Random Forest
 
-## 🚀 How to Run the Project
+### 🔹 Main Models for Analysis
 
-1. **Clone the repository**:
-```bash
-git clone https://github.com/yourusername/crime-rate-prediction.git
-cd crime-rate-prediction
-```
-
-2. **Install dependencies**:
-```bash
-pip install -r requirements.txt
-```
-
-3. **Run the notebook**:
-```bash
-jupyter notebook notebooks/crime_prediction_logistic.ipynb
-```
+* Gaussian Naive Bayes (GNB)
+* Multi-Layer Perceptron (MLP)
 
 ---
 
+## 🧠 Explainability Techniques
 
+* **SHAP (SHapley Additive Explanations)**
+
+  * Provides global feature importance
+  * Used for feature selection
+
+* **LIME (Local Interpretable Model-Agnostic Explanations)**
+
+  * Explains individual predictions
+  * Used for local interpretability
+
+---
+
+## 🔄 Workflow
+
+1. Data preprocessing and feature engineering
+2. Train baseline models (KNN, Logistic Regression, Random Forest)
+3. Train main models (GNB, MLP)
+4. Evaluate performance (Accuracy, Precision, Recall, F1-score)
+5. Apply SHAP and LIME
+6. Select top features
+7. Retrain models using selected features
+8. Compare results before and after XAI
+
+---
+
+## 📈 Results Summary
+
+* Dataset 1 achieved high accuracy due to structured data
+* Dataset 2 showed lower accuracy due to complexity and noise
+* MLP consistently performed better than simpler models
+* SHAP improved performance, especially for MLP
+* LIME provided local explanations but showed less stability
+
+---
+
+## 📊 Visualizations
+
+* SHAP summary plots
+* Feature importance bar plots
+* Model comparison graphs
+* SHAP force plots
+
+---
+
+## 🛠️ Tech Stack
+
+* Python
+* Scikit-learn
+* SHAP
+* LIME
+* Pandas, NumPy, Matplotlib
+
+---
+
+## 📌 Key Insights
+
+* Data quality has a major impact on model performance
+* Complex models (MLP) benefit more from feature selection
+* SHAP is more effective for global interpretability
+* LIME is useful for explaining individual predictions
+
+---
+
+## 🚀 Future Scope
+
+* Use advanced models like XGBoost and deep learning
+* Build real-time crime prediction systems
+* Apply geospatial analysis for crime hotspot detection
+* Combine SHAP and LIME for hybrid explainability
+
+---
+
+## 👥 Authors
+
+* Anoushka Deb
+* Shalini Shree
+* Triyanjana Paul
+* Srija Adhya
+
+---
+
+## ⭐ Acknowledgment
+
+This project was developed as part of an academic research initiative on Explainable AI and crime prediction.
+
+---
